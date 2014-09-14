@@ -1,0 +1,191 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",                               
+  "description": "Four A Security Prototype extension data schema",
+  "type": "object",
+
+  "properties": {
+    "foura": {
+      "type": "object",
+      "properties": {
+        "victim" : {
+          "type": "object",
+          "properties": {
+            "city": {
+              "type": "string"
+            },
+            "public": {
+              "type": "string",
+              "enum": [
+                "public",
+                "private"
+                ]
+            },
+            "for_profit": {
+              "type": "string",
+              "enum": [
+                "for profit",
+                "not for profit"
+              ]
+            },
+            "industry": {
+              "type": "string",
+              "enum": [
+                "Financial",
+                "Hospitality",
+                "Manufacturing",
+                "Media & Ent",
+                "Medical",
+                "Healthcare",
+                "Mining & Energy",
+                "Pharma",
+                "Real Estate & Construction",
+                "Retail & Wholesale Trade",
+                "Tech",
+                "Telecom",
+                "Transportation",
+                "Utilities",
+                "Education",
+                "Food",
+                "Government",
+                "Information",
+                "Medical-Animal",
+                "Insurance",
+                "Services",
+                "Tech Services"
+              ]
+            }
+          }
+        },
+        "incident": {
+          "type": "object",
+          "properties": {
+            "record_types": {
+              "type": "string",
+              "enum": [
+                "PHI",
+                "Payment Card",
+                "PII",
+                "User Name PW",
+                "Client Trade Secrets",
+                "Other",
+                "Bank info",
+                "Insurance Information",
+                "Financial Information",
+                "Educational Records"
+              ]
+            },
+            "attack_vector": {
+              "type": "string",
+              "enum": [
+                "Brute Force",
+                "Crimeware",
+                "DoS",
+                "Human Error",
+                "Payment Card Skimmers",
+                "Physical Theft",
+                "PoS Intrusion",
+                "Spyware",
+                "SQL Injection",
+                "Trojan",
+                "Web App Attacks",
+                "Insider Threat",
+                "Malicious Insider",
+                "Unintentional Insider Threat",
+                "Compromised Login Info",
+                "Hack",
+                "Website Hack",
+                "Server Hack",
+                "Malware",
+                "Phishing Email",
+                "Unauthorized Access",
+                "Compromised Email",
+                "Unauthorized Access & Malware",
+                "Unauthoized Access Admin Privileges",
+                "Loss of Information"
+              ]
+            },
+            "breached_information_location": {
+              "type": "string",
+              "enum": [
+                "Laptop",
+                "Paper",
+                "E-mail",
+                "Laptop, Other Portable Electronic Device",
+                "Other Portable Electronic Device",
+                "Desktop Computer",
+                "Network Server",
+                "Other",
+                "Laptop, Desktop Computer"
+              ]
+            },
+            "business_associate_involved": {
+              "type": "string"
+            }
+          }
+        },
+        "costs": {
+          "type": "object",
+          "properties": {
+            "monetary_loss": {
+              "type": "number"
+            },
+            "fines": {
+              "type": "number"
+            },
+            "legal_costs": {
+              "type": "number"
+            },
+            "breach_notification_costs": {
+              "type": "number"
+            },
+            "sec_fines": {
+              "type": "number"
+            }
+          }
+        },
+        "lawsuits": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "case_name": {
+                "type": "string"
+              },
+              "case_number": {
+                "type": "string"
+              },
+              "court": {
+                "type": "string"
+              },
+              "decision": {
+                "type": "string"
+              },
+              "award": {
+                "type": "number"
+              },
+              "url": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "source": {
+          "type": "string",
+          "enum": [
+            "Verizon",
+            "Dataloss DB",
+            "HHS",
+            "HHS via PHIPrivacy.net",
+            "WHID",
+            "Media",
+            "California Attorney General",
+            "Verizon/WHID",
+            "HHS/WHID",
+            "Verizon/HHS",
+            "Verizon/HHS via PHIPrivacy.net"
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,86 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    activemodel (3.2.18)
+      activesupport (= 3.2.18)
+      builder (~> 3.0.0)
+    activerecord (3.2.18)
+      activemodel (= 3.2.18)
+      activesupport (= 3.2.18)
+      arel (~> 3.0.2)
+      tzinfo (~> 0.3.29)
+    activesupport (3.2.18)
+      i18n (~> 0.6, >= 0.6.4)
+      multi_json (~> 1.0)
+    arel (3.0.3)
+    axiom-types (0.1.1)
+      descendants_tracker (~> 0.0.4)
+      ice_nine (~> 0.11.0)
+      thread_safe (~> 0.3, >= 0.3.1)
+    builder (3.0.4)
+    coercible (1.0.0)
+      descendants_tracker (~> 0.0.1)
+    descendants_tracker (0.0.4)
+      thread_safe (~> 0.3, >= 0.3.1)
+    dotenv (0.11.1)
+      dotenv-deployment (~> 0.0.2)
+    dotenv-deployment (0.0.2)
+    equalizer (0.0.9)
+    grape (0.7.0)
+      activesupport
+      builder
+      hashie (>= 1.2.0)
+      multi_json (>= 1.3.2)
+      multi_xml (>= 0.5.2)
+      rack (>= 1.3.0)
+      rack-accept
+      rack-mount
+      virtus (>= 1.0.0)
+    grape-entity (0.4.4)
+      activesupport
+      multi_json (>= 1.3.2)
+    hashie (3.1.0)
+    i18n (0.6.9)
+    ice_nine (0.11.0)
+    logger (1.2.8)
+    multi_json (1.10.1)
+    multi_xml (0.5.5)
+    pg (0.17.1)
+    rack (1.5.2)
+    rack-accept (0.4.5)
+      rack (>= 0.4)
+    rack-contrib (1.1.0)
+      rack (>= 0.9.1)
+    rack-cors (0.2.9)
+    rack-jsonp-middleware (0.0.9)
+      rack
+    rack-mount (0.8.3)
+      rack (>= 1.0.0)
+    rake (10.3.2)
+    sqlite3 (1.3.9)
+    thread_safe (0.3.4)
+    tzinfo (0.3.39)
+    virtus (1.0.2)
+      axiom-types (~> 0.1)
+      coercible (~> 1.0)
+      descendants_tracker (~> 0.0.3)
+      equalizer (~> 0.0.9)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  activerecord (~> 3.2.13)
+  activesupport (~> 3.2.13)
+  builder (~> 3.0.0)
+  dotenv
+  grape
+  grape-entity
+  logger
+  pg
+  rack
+  rack-contrib
+  rack-cors
+  rack-jsonp-middleware
+  rake
+  sqlite3

@@ -1,0 +1,50 @@
+<style type="text/css">  
+  .nav-tabs li:hover {cursor:pointer;}  
+  .row { margin-top:20px; }
+  
+body {
+    padding-top: 75px !important;
+}    
+</style>
+
+<pre>
+	Current Review: {{ review | json }}
+</pre>
+
+<div id="view_content">
+  <div id="subnavigation" class="subnav">
+    <a ng-href="#/reviews">Reviews</a> > New Review                     
+  </div>    
+  <div id="view_main_content">
+    <form novalidate class="simple-form">
+			<table>
+				<tr>
+					<td>Name of this beer:&nbsp;</td>
+					<td><input type="text" class="form-control" ng-model="review.beer_name" /></td>
+				</tr>
+				<tr><td colspan="2">&nbsp;</td></tr>
+				<tr>
+					<td>Manufacturer:</td>
+					<td><input type="text" class="form-control" ng-model="review.maker" /></td>
+				</tr>
+				<tr><td colspan="2">&nbsp;</td></tr>
+				<tr>
+					<td>Drink again?:</td>
+					<td><input type="checkbox" ng-model="review.drink_again"></td>
+				</tr>
+				<tr><td colspan="2">&nbsp;</td></tr>
+				<tr>
+					<td>Rating:</td>
+					<td><input type="text" class="form-control" ng-model="review.rating" /></td>
+				</tr>	
+				<tr><td colspan="2">&nbsp;</td></tr>
+				<tr>
+					<td>Comments:</td>
+					<td><input type="text" class="form-control" ng-model="review.comments" /></td>
+				</tr>        			
+			</table>
+			<br>
+			<button class="btn btn-default btn-sm" ng-click="saveReview()">Save</button>			
+		</form>     
+  </div>
+</div>
