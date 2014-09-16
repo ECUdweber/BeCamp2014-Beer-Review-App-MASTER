@@ -1,4 +1,9 @@
-class Review < ActiveRecord::Base  
+class Review < ActiveRecord::Base
+  attr_accessible :beer_name,:maker,:drink_again,:rating,:comments,:date_added
+
+  class Entity < Grape::Entity
+    expose :id,:beer_name,:maker,:drink_again,:rating,:comments,:date_added
+  end
 end
 
 ActiveRecord::Base.include_root_in_json = false
@@ -12,12 +17,11 @@ class Reviews < Grape::API
     end
 	  
     get do
-	  present Review.all
+	  Review.all
     end	
 	
     get ':id' do
-		review = Review.find(params[:id])
-      	review
+	  Review.find(params[:id])
     end	
 	
     post do
@@ -29,6 +33,7 @@ class Reviews < Grape::API
       review.comments = params[:comments]
       review.save!
 
+	  # Return appropriate status code for created
       status 201
     end	
 	
@@ -42,7 +47,7 @@ class Reviews < Grape::API
       review.comments = params[:comments]
       review.save!
 
-      status 202
+      status 200
     end	
 	
     delete '/:id' do
@@ -50,7 +55,7 @@ class Reviews < Grape::API
       return status 404 if review.nil?
       review.delete	      
 	  
-      status 202	  	 
+      status 200	  	 
     end	
 		
   end

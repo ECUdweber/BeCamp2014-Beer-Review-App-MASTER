@@ -5,26 +5,20 @@ angular.module('navigation', []);
 angular.module('navigation').controller('navigationCtrl', 
 	function($scope){	
 	    
-		$scope.main_navigation_list = [     
-			{ "title": "Reviews",   "page":"reviews",     "selected": true }
-			//{ "title": "TEST",   "page":"incidents-test",     "selected": false },
-			//{ "title": "Faults",  "page":"faults",  "selected": false }
-	    ];
+  		$scope.main_navigation_list = [     
+  			{ "title": "View Reviews",   "page":"reviews",     "selected": true },
+  			{ "title": "Create New Review",   "page":"create-new-review",     "selected": false }
+  	  ];
 		
-	    $scope.selected = 0;
-	    $scope.previous = 0;		
-		
-	   	$scope.currentSelectedTab = $scope.main_navigation_list[0];//{};
+	    $scope.selected = $scope.previous = 0;
+	   	$scope.currentSelectedTab = $scope.main_navigation_list[0];
 		
 	    $scope.setSelectedTab = function(tab){
 	        $scope.currentSelectedTab = tab
 	    }
 	    
 	    $scope.isSelected = function(tab){
-	        if(tab == $scope.currentSelectedTab){
-	        	return true;
-	        }
-	        
+	        if(tab == $scope.currentSelectedTab) return true;	        
 	        return false;
 	    }
 	    

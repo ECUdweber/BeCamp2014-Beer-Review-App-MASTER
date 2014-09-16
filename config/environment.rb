@@ -25,11 +25,10 @@ module App
   self.logger = Logger.new(ENV['LOG_TO_FILE'] ? root.join('log', "#{env}.log") : STDOUT)
 
   Dir[root.join('config/initializers/**/*.rb')].each {|initializer| require initializer }
-  Dir[root.join('lib/models/*.rb')].each {|model| require model }
   Dir[root.join('lib/api/**/*.rb')].sort.reverse.each {|api| require api }
   
-dbconfig = YAML::load(File.open('config/database.yml'))
-ActiveRecord::Base.establish_connection(dbconfig)  
+  dbconfig = YAML::load(File.open('config/database.yml'))
+  ActiveRecord::Base.establish_connection(dbconfig)  
   
   $LOAD_PATH.unshift root.join('lib')
   # Require the file in load path that matches the snake_case version of your App constant

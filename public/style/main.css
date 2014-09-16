@@ -60,21 +60,8 @@
     cursor:default !important;
   }
   
-  #list-incidents-table tr:hover {
+  #list-reviews-table tr:hover {
     cursor:pointer !important;
-  }
-  
-  .nav-tabs > li > a {
-    border-color:#eee #eee #ddd;
-    border-width:1px;
-  }
-  
-  .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
-    background:#eee;
-  }
-  
-  .nav-tabs > li > a:hover {
-    background:none repeat scroll 0 0 #dfdfdf !important;
   }
   
   /* Sorting table header */
@@ -87,16 +74,6 @@
     background-position: 99% 46% !important;
   } 
   
-  .accordion-close {
-    background-position:-32px -16px;
-    background:url("/images/icons/ui-icons_888888_256x240.png") no-repeat rgba(0, 0, 0, 0);
-  }
-  
-  .accordion-open {
-    background-position:-64px -16px;
-    background:url("/images/icons/ui-icons_888888_256x240.png") no-repeat rgba(0, 0, 0, 0);
-  } 
-  
   ul.nav-tabs {
     position:fixed;
     top:150px;
@@ -104,3 +81,52 @@
     background:#fff !important;
     z-index:9999;
   }
+  
+#list-reviews-table {
+	width:100%;
+	color:#555555;
+}
+
+#review_filter_text {
+	color:#555555;
+	font-weight:bold;
+	padding-bottom:10px;
+}
+
+#review_filter_text input {
+	margin-left:10px;
+	margin-top:7px;
+}
+
+#list-reviews-table .even {
+	background:#F2F2F2;
+}
+
+#list-reviews-table tbody tr:hover {
+	background:#DFDFDF;
+}
+
+.bordered_table, .bordered_table th, .bordered_table td {
+	border:1px solid #D4D4D4;
+	padding:1px;
+}
+
+.bordered_table .pad-left {
+	padding-left:15px;
+}
+
+body {
+    padding-top: 75px !important;
+}
+
+.center {
+  text-align:center;
+}
+
+.list-group-item:hover { cursor:pointer; }
+
+.row {
+  margin-top:20px;
+}
+
+th:hover { cursor:pointer; }  
