@@ -54,10 +54,14 @@ function ReviewsCtrl($scope, $http, $filter, $resource, $location, $routeParams,
 function ReviewDetailCtrl($scope, $http, $resource, $location, $routeParams, ReviewFactory){ 
   $scope.current_review_id = $routeParams.reviewId;   
   $scope.review = ReviewFactory.get({id: $scope.current_review_id});
+  $scope.max_rating = 5;
+  $scope.stars = [];  
   
   $scope.review.$promise.then(function (result) {
     if($scope.review.drink_again == 1)
-      $scope.review.drink_again = true;    
+      $scope.review.drink_again = true;
+      
+    $scope.setRatingStars();          
   });          
   
   $scope.showReviewDetail = function(review_id) {         
@@ -72,7 +76,22 @@ function ReviewDetailCtrl($scope, $http, $resource, $location, $routeParams, Rev
   $scope.saveReview = function() {        
 		ReviewFactory.update({id: $scope.current_review_id},$scope.review);   
     $location.path("/reviews/"); 
-  }          	
+  }   
+  
+  $scope.setRatingStars = function () {
+    $scope.stars = [];
+    
+    for (var i = 0; i < $scope.max_rating; i++) {
+        $scope.stars.push({
+            filled: i < $scope.review.rating
+        });
+    }   
+  } 
+  
+  $scope.toggleRating = function ($index) {
+    $scope.review.rating = $index + 1;
+    $scope.setRatingStars();
+  }                      	
 }
 
 function NewReviewCtrl($scope, $timeout, $http, $location, ReviewFactory) {      
@@ -80,13 +99,33 @@ function NewReviewCtrl($scope, $timeout, $http, $location, ReviewFactory) {
     "beer_name": "",
     "maker": "",
     "drink_again": false,
-    "rating": "",
+    "rating": "0",
     "comments": ""
-  };                      
+  };
+  
+  $scope.max_rating = 5;
+  $scope.stars = [];                          
 
   $scope.saveReview = function() {       
     ReviewFactory.save($scope.review);                                                                
     $location.path("/reviews/");
-  }                 
+  } 
+  
+  $scope.setRatingStars = function () {
+    $scope.stars = [];
+    
+    for (var i = 0; i < $scope.max_rating; i++) {
+        $scope.stars.push({
+            filled: i < $scope.review.rating
+        });
+    }   
+  } 
+  
+  $scope.toggleRating = function ($index) {
+    $scope.review.rating = $index + 1;
+    $scope.setRatingStars();
+  }
+  
+  $scope.setRatingStars();                   
 }
     

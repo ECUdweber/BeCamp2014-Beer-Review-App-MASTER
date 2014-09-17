@@ -31,13 +31,22 @@
 				<tr><td colspan="2">&nbsp;</td></tr>
 				<tr>
 					<td>Rating:</td>
-					<td><input type="text" class="form-control" ng-model="review.rating" /></td>
+					<td>
+            <span>{{review.rating}} out of {{max_rating}}
+                <div star-rating rating-value="rating.current" max="max_rating" on-rating-selected="getSelectedRating(rating)">
+                  <ul class="rating">
+                    <li ng-repeat="star in stars" ng-class="star" ng-click="toggleRating($index)">&#9734;</li>
+                  </ul>
+                </div>
+            </span>					
+            <!--<input type="text" class="form-control" ng-model="review.rating" />-->
+          </td>
 				</tr>	
 				<tr><td colspan="2">&nbsp;</td></tr>
 				<tr>
 					<td>Comments:</td>
-					<td><input type="text" class="form-control" ng-model="review.comments" /></td>
-				</tr>        			
+					<td><textarea ng-model="review.comments" cols="50" /></textarea></td>
+				</tr>       			
 			</table>
 			<br>
 			<button class="btn btn-default btn-sm" ng-click="saveReview()">Save</button>			
