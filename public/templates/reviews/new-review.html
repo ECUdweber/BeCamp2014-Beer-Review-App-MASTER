@@ -8,11 +8,13 @@
 </pre>
 
 <div id="view_content">
-  <div id="subnavigation" class="subnav">
-    <a ng-href="#/reviews">Reviews</a> > New Review                     
-  </div>    
-  <div id="view_main_content">
-    <form novalidate class="simple-form">
+
+	<div id="subnavigation" class="subnav">
+		<a ng-href="#/reviews">Reviews</a> > New Review                     
+	</div>    
+
+	<div id="view_main_content">
+		<form novalidate class="simple-form">
 			<table>
 				<tr>
 					<td>Name of this beer:&nbsp;</td>
@@ -32,15 +34,14 @@
 				<tr>
 					<td>Rating:</td>
 					<td>
-            <span>{{review.rating}} out of {{max_rating}}
-                <div star-rating rating-value="rating.current" max="max_rating" on-rating-selected="getSelectedRating(rating)">
-                  <ul class="rating">
-                    <li ng-repeat="star in stars" ng-class="star" ng-click="toggleRating($index)">&#9734;</li>
-                  </ul>
-                </div>
-            </span>					
-            <!--<input type="text" class="form-control" ng-model="review.rating" />-->
-          </td>
+						<span>{{review.rating}} out of {{max_rating}}
+						<div star-rating rating-value="rating.current" max="max_rating" on-rating-selected="getSelectedRating(rating)">
+							<ul class="rating">
+								<li ng-repeat="star in stars" ng-class="star" ng-click="toggleRating($index)">&#9734;</li>
+							</ul>
+						</div>
+						</span>					
+					</td>
 				</tr>	
 				<tr><td colspan="2">&nbsp;</td></tr>
 				<tr>
@@ -49,7 +50,8 @@
 				</tr>       			
 			</table>
 			<br>
-			<button class="btn btn-default btn-sm" ng-click="saveReview()">Save</button>			
+			<button class="btn btn-default btn-sm" ng-click="saveReview()">Save</button>	
 		</form>     
-  </div>
+	</div>
+
 </div>
